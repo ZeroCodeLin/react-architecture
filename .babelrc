@@ -1,0 +1,12 @@
+{
+    "presets": [
+        ["env",{
+            "targets": {
+                "browsers": ["IE >= 9"]
+            },
+            "useBuiltIns": true
+        }],
+        "react",
+        "stage-2"
+    ]
+}
