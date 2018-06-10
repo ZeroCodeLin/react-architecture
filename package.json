@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "webpack-dev-server --open",
-        "mock": "nodemon ./mock/mock-server.js"
+        "mock": "nodemon ./mock/mock-server.js",
+        "dev": "concurrently \"npm run mock\" \"npm start\" "
     },
     "repository": {
         "type": "git",
@@ -33,6 +34,7 @@
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",
         "babel-preset-stage-2": "^6.24.1",
+        "concurrently": "^3.5.1",
         "css-loader": "^0.28.11",
         "eslint": "^4.19.1",
         "eslint-loader": "^2.0.0",

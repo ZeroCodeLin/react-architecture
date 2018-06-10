@@ -9,7 +9,7 @@ app.use(bodyParser())
 const hello = require('./hello')
 
 app.use(router.routes())
-router.get('/users/list', async(ctx, next) => {
+router.get('/list', async(ctx, next) => {
   ctx.body = hello
   await next()
 })
