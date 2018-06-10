@@ -3,16 +3,10 @@ const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 
+
 app.use(bodyParser())
 
-
-const hello = require('./hello')
-
-app.use(router.routes())
-router.get('/list', async(ctx, next) => {
-  ctx.body = hello
-  await next()
-})
+app.use(mock.routes())
 
 // error-handling
 app.on('error', (err, ctx) => {

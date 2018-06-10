@@ -11,8 +11,8 @@ export default class Home extends PureComponent{
         return (
             <div>
                 <div style={styles.container}>
-                    <Link to="/page1">Page1</Link>
-                    <Link to="/page2">Page2</Link>
+                    <Link to="/page1" style={styles.link} >Page1</Link>
+                    <Link to="/page2" style={styles.link} >Page2</Link>
                     <Link to="/page3">Page3</Link>
                 </div>
                 <div style={styles.container}>
@@ -34,5 +34,8 @@ const styles = {
     container: {
         display: 'flex',
         justifyContent: 'center'
+    },
+    link: {
+        marginRight: 10
     }
 }

@@ -1,5 +1,4 @@
 import 'whatwg-fetch'
-import '../../mock/hello'
 
 const codeMessage = {
     200: '服务器成功返回请求的数据。',
@@ -31,11 +30,10 @@ function checkStatus(response) {
 }
 
 /**
- * Requests a URL, returning a promise.
  *
- * @param  {string} url       The URL we want to request
- * @param  {object} [options] The options we want to pass to "fetch"
- * @return {object}           An object containing either "data" or "err"
+ * @param  {string} url       请求url
+ * @param  {object} [options] fetch 配置选项
+ * @return {object}           
  */
 export default function request(url, options) {
     const defaultOptions = {
@@ -51,7 +49,6 @@ export default function request(url, options) {
             }
             newOptions.body = JSON.stringify(newOptions.body)
         } else {
-            // newOptions.body is FormData
             newOptions.headers = {
                 Accept: 'application/json',
                 ...newOptions.headers,
