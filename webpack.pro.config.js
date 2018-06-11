@@ -7,8 +7,7 @@ module.exports = {
     entry:{
         main:['babel-polyfill','./src/index.js'],        
         vendors: ['react','react-dom','react-router-dom','whatwg-fetch']
-    }
-    ,
+    },
     output:{
         path:path.resolve(__dirname,'dist'),
         filename:'bundle.[hash:4].js'
@@ -23,8 +22,7 @@ module.exports = {
                         options: {  
                             limit: '1024' ,
                             name: '[name].[hash:4].[ext]'  
-                        }
-                        
+                        }                        
                     },  
                 ]  
             },
