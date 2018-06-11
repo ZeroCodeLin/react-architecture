@@ -52,7 +52,7 @@ module.exports = {
             }
         ]
     },
-    devtool: "cheap-module-source-map",
+    devtool: false,
     plugins:[
         new HtmlWebpackPlugin({template:'./src/index.html'}),
         new webpack.optimize.ModuleConcatenationPlugin(),
@@ -73,5 +73,6 @@ module.exports = {
                 "NODE_ENV": JSON.stringify("production")
             }
         }),
+        new webpack.BannerPlugin('Copyright by Zero https://github.com/l-Lemon/blog')
     ]
 }
