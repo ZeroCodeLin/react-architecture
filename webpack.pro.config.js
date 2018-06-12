@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const baseConfig = require('./webpack.base')
 
 module.exports = {
     entry:{
@@ -9,54 +10,11 @@ module.exports = {
         // 将第三方库包单独打包，充分利用浏览器缓存        
         vendors: ['react','react-dom','react-router-dom','whatwg-fetch']
     },
-    output:{
-        path:path.resolve(__dirname,'dist'),
-        filename:'bundle.[hash:4].js'
-    },
-    module:{
-        rules:[
-            {  
-                test: /\.(woff|eot|ttf|svg|png|jpg)$/,  
-                use: [  
-                    {  
-                        loader: 'url-loader',  
-                        options: {  
-                            limit: '1024' ,
-                            name: '[name].[hash:4].[ext]'  
-                        }                        
-                    },  
-                ]  
-            },
-            {  
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                use: [  
-                    {  
-                        loader: 'url-loader',  
-                        options: {  
-                            limit: '1024',
-                            name: '[name].[hash:4].[ext]'  
-                        }  
-                    },  
-                ]  
-            },
-            {
-                test: /\.(css|less)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ["css-loader","less-loader"]
-                })
-            },
-            {
-                test:/\.(js|jsx)$/,
-                use:"babel-loader",
-                exclude:/node_modules/
-            }
-        ]
-    },
+    ...baseConfig.config,
     devtool: false,
     plugins:[
         // html 模板插件
-        new HtmlWebpackPlugin({template:'./src/index.html',favicon: './public/favicon.png'}),
+        baseConfig.htmlTemplate,
         // 启用作用域提升,让代码文件更小、运行的更快
         new webpack.optimize.ModuleConcatenationPlugin(),
         // 提取公共代码vendors
@@ -65,7 +23,7 @@ module.exports = {
             filename:'[name].[hash:4].js'
         }),
         // 抽离出css
-        new ExtractTextPlugin("style.css"),
+        baseConfig.extractCss,
         // 压缩js代码
         new webpack.optimize.UglifyJsPlugin({
             compress: {
