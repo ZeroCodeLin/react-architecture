@@ -1,59 +1,16 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const baseConfig = require('./webpack.base')
 
 module.exports = {
     entry:{
         main:['babel-polyfill','./src/index.js'],
     },
-    output:{
-        path:path.resolve(__dirname,'dist'),
-        filename:'bundle.js'
-    },
-    module:{
-        rules:[
-            {  
-                test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,  
-                use: [  
-                    {  
-                        loader: 'url-loader',  
-                        options: {  
-                            limit: '1024'  
-                        }  
-                    },  
-                ]  
-            },
-            {  
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                use: [  
-                    {  
-                        loader: 'url-loader',  
-                        options: {  
-                            limit: '1024'  
-                        }  
-                    },  
-                ]  
-            },
-            {
-                test: /\.(css|less)$/,
-                use: [
-                    'style-loader',
-                    { 
-                        loader: 'css-loader',
-                        options: { importLoaders: 1 } 
-                    },
-                    'less-loader'
-                ]
-            },
-            {
-                test:/\.(js|jsx)$/,
-                use:["babel-loader", "eslint-loader"],
-                exclude:/node_modules/
-            }
-        ]
-    },
+    ...baseConfig.config,
     plugins:[
-        new HtmlWebpackPlugin({template:'./src/index.html',favicon: './public/favicon.png'}),
+        baseConfig.htmlTemplate,
+        baseConfig.extractCss
     ],
     devServer:{
         contentBase: path.join(__dirname, "dist"),
