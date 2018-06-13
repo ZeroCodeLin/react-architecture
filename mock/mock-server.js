@@ -1,5 +1,5 @@
 const Koa = require('koa');
-const router = require('koa-router')();
+const mock = require('./mock');
 const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 
