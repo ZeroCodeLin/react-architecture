@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest --coverage",
         "start": "webpack-dev-server --open",
         "mock": "nodemon ./mock/mock-server.js",
         "dev": "concurrently \"npm run mock\" \"npm start\" ",
@@ -20,6 +20,20 @@
         "url": "https://github.com/l-Lemon/react-architecture/issues"
     },
     "homepage": "https://github.com/l-Lemon/react-architecture#readme",
+    "jest": {
+        "verbose": true,
+        "moduleFileExtensions": [
+            "js",
+            "jsx"
+        ],
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+            ".*\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js"
+        },
+        "transform": {
+            "^.+\\.(js|jsx)$": "babel-jest"
+        }
+    },
     "dependencies": {
         "babel-polyfill": "^6.26.0",
         "react": "^16.4.0",
@@ -38,6 +52,7 @@
         "concurrently": "^3.5.1",
         "css-loader": "^0.28.11",
         "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
         "eslint": "^4.19.1",
         "eslint-loader": "^2.0.0",
         "eslint-plugin-react": "^7.9.1",
