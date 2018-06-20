@@ -14,8 +14,8 @@
         "type": "git",
         "url": "git+https://github.com/l-Lemon/react-architecture.git"
     },
-    "author": "",
-    "license": "ISC",
+    "author": "zero",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/l-Lemon/react-architecture/issues"
     },
