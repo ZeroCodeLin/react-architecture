@@ -1,26 +1,30 @@
-import React, {PureComponent} from 'react'
-import request from '../utils/request'
+import React,{ PureComponent } from "react"
+import { connect } from 'react-redux';
 
-export default class Page1 extends PureComponent{
-    state={
-        data: {}
+class Demo extends PureComponent{
+    
+    addClick=()=>{
+        this.props.dispatch({type:'add'})      
     }
-    click=()=>{
-        request('api/page1').then(data=>{
-            this.setState({
-                data: data
-            })
-        })
+    subtractClick=()=>{
+        this.props.dispatch({type:'subtract'})
     }
     render(){
         return (
-            <div>
-                <h1>Hello Page1!</h1>
-                <input type="button" value="获取mcok" onClick={this.click} />
-                <div style={{width:300}}>
-                    <p>Page1的mock模拟数据为：{JSON.stringify(this.state.data)}</p>
-                </div>
+            <div style={{padding:20}} >
+                <h1>计数器</h1>
+                <h2>{this.props.num}</h2>
+                <button onClick={this.addClick} style={{marginRight:10}} >add</button>
+                <button onClick={this.subtractClick} >subtract</button>
             </div>
         )
     }
 }
+
+function select(state) {
+    console.log(state)
+    return {
+        num: state['example']
+    }
+}
+export default connect(select)(Demo);
