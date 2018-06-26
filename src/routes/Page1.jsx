@@ -1,7 +1,10 @@
 import React,{ PureComponent } from "react"
 import { connect } from 'react-redux';
 
-class Demo extends PureComponent{
+@connect(({ example }) => ({
+    num: example,
+}))
+class Page1 extends PureComponent{
     
     addClick=()=>{
         this.props.dispatch({type:'add'})      
@@ -21,10 +24,4 @@ class Demo extends PureComponent{
     }
 }
 
-function select(state) {
-    console.log(state)
-    return {
-        num: state['example']
-    }
-}
-export default connect(select)(Demo);
+export default Page1;

@@ -1,6 +1,5 @@
 const defaultState = 0;
 
-
 export const example =(state = defaultState, action)=>{
     switch (action.type){
         case "add":

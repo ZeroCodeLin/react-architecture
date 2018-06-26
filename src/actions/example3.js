@@ -8,7 +8,6 @@ const saveReducer = (data) => ({
 export const getTest = (id) => async (dispatch, getState) => {
     try {
         let response = await request(`api/page3`)
-        debugger
         await dispatch(saveReducer(response))
     } catch (error) {
         console.log('error: ', error)

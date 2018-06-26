@@ -4,13 +4,20 @@ import { connect } from 'react-redux';
 
 import { getTest } from '../actions/example3'
 
+
+@connect(
+    ({ example3 }) => ({
+        dataSource: example3.dataSource,
+    }),
+    dispatch=> bindActionCreators({ getTest }, dispatch)
+)
 class Page3 extends PureComponent{
     state={
         data: {}        
     }
     click=()=>{
        console.log(this.props)
-       this.props.dispatch.getTest()
+       this.props.getTest()
     }
     render(){
         console.log(this.props.dataSource)
@@ -26,19 +33,19 @@ class Page3 extends PureComponent{
     }
 }
 
-function select(state) {
-    return {
-        dataSource: state['example3'].dataSource
-    }
-}
+// function select(state) {
+//     return {
+//         dataSource: state['example3'].dataSource
+//     }
+// }
 
-const mapDispatchToProps = (
-    dispatch,
-    ownProps
-  ) => {
-    return {
-        dispatch : bindActionCreators({ getTest }, dispatch)
-    }
-  }
+// const mapDispatchToProps = (
+//     dispatch,
+//     ownProps
+//   ) => {
+//     return {
+//         dispatch : bindActionCreators({ getTest }, dispatch)
+//     }
+//   }
 
-export default connect(select, mapDispatchToProps)(Page3);
+export default Page3;
