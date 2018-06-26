@@ -1,20 +1,27 @@
-import React, {PureComponent} from 'react'
+import React, { Component } from 'react'
+import {inject, observer } from 'mobx-react';
 
-class Page3 extends PureComponent{
+@inject('store3')
+@observer
+class Page3 extends Component{
+    constructor(props) {
+		super(props);
+		this.store = this.props.store3;
+	}
     state={
         data: {}        
     }
     click=()=>{
-       
+        this.store.fetchList()
     }
     render(){
-        console.log(this.props.dataSource)
+        
         return (
             <div>
                 <h1>Hello Page3!</h1>
-                <input type="button" value="获取mcok" onClick={this.click} />
+                <input type="button" value="异步MobX" onClick={this.click} />
                 <div style={{width:300}}>
-                    <p>Page3的mock模拟数据为：</p>
+                    <p>Page3的异步获取数据为：{JSON.stringify(this.store.dataSource)}</p>
                 </div>
             </div>
         )
