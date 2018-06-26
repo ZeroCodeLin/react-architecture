@@ -1,9 +1,7 @@
 import React, {PureComponent} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
-
 import { getTest } from '../actions/example3'
-
 
 @connect(
     ({ example3 }) => ({
