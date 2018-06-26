@@ -35,33 +35,6 @@ function TabelDemo(props) {
     )
 }
 
-function select(state) {
-    console.log("state", state)
-    return {
-        dataSource: state['example2']
-    }
-}
-const mapDispatchToProps = (
-    dispatch,
-    ownProps
-) => {
-    return {
-        onClick: () => {
-            dispatch({
-                type: 'add_row',
-                name: randomName(),
-                age: Math.floor(Math.random() * 100 + 1),
-                address: randomAddress()
-            });
-        },
-        update: (id) => {
-            dispatch({
-                type: 'marriage',
-                id: id
-            })
-        }
-    };
-}
 const firstNameArr = ["赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈"]
 const lastNameArr = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
 const randomName = () => {
@@ -75,4 +48,4 @@ const randomAddress = () => {
     const name = placeArr[Math.floor(Math.random() * 10)]
     return `浙江省杭州市${name}`
 }
-export default connect(select, mapDispatchToProps)(TabelDemo);
+export default TabelDemo;
