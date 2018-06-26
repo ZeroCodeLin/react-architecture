@@ -16,7 +16,6 @@ class Page3 extends PureComponent{
         data: {}        
     }
     click=()=>{
-       console.log(this.props)
        this.props.getTest()
     }
     render(){
@@ -32,20 +31,5 @@ class Page3 extends PureComponent{
         )
     }
 }
-
-// function select(state) {
-//     return {
-//         dataSource: state['example3'].dataSource
-//     }
-// }
-
-// const mapDispatchToProps = (
-//     dispatch,
-//     ownProps
-//   ) => {
-//     return {
-//         dispatch : bindActionCreators({ getTest }, dispatch)
-//     }
-//   }
 
 export default Page3;
