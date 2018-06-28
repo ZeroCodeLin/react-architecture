@@ -1,22 +1,23 @@
-import React,{ Component } from "react"
-import {inject, observer } from 'mobx-react';
+import React,{ Component } from 'react'
+import { inject, observer } from 'mobx-react'
+
 @inject('store1')
 @observer 
 class Page1 extends Component{
-    constructor(props) {
-		super(props);
-		this.store = this.props.store1;
-	}
+    constructor(props){
+        super(props)
+        this.store = this.props.store1
+    }
     
     addClick=()=>{
-        this.store.add();
-        console.log(this.store)
+        this.store.add()
+        
     }
     subtractClick=()=>{
-        this.store.subtractClick();
+        this.store.subtractClick()
     }
     componentDidMount(){
-        console.log(this.props)
+        
     }
     render(){
         return (
@@ -30,4 +31,4 @@ class Page1 extends Component{
     }
 }
 
-export default Page1;
+export default Page1

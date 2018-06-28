@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
-import {inject, observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react'
 
 @inject('store3')
 @observer
-class Page3 extends Component{
+class Page3 extends Component {
     constructor(props) {
-		super(props);
-		this.store = this.props.store3;
-	}
-    state={
-        data: {}        
+        super(props)
+        this.store = this.props.store3
     }
-    click=()=>{
+    state = {
+        data: {}
+    }
+    click = () => {
         this.store.fetchList()
     }
-    render(){
-        
+    render() {
+
         return (
             <div>
                 <h1>Hello Page3!</h1>
                 <input type="button" value="异步MobX" onClick={this.click} />
-                <div style={{width:300}}>
+                <div style={{ width: 300 }}>
                     <p>Page3的异步获取数据为：{JSON.stringify(this.store.dataSource)}</p>
                 </div>
             </div>
@@ -28,4 +28,4 @@ class Page3 extends Component{
     }
 }
 
-export default Page3;
+export default Page3

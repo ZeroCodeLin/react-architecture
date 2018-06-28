@@ -1,7 +1,7 @@
 import {action,observable} from 'mobx'
 
 class Example2 {
-    @observable dataSource = [];
+    @observable dataSource = []
 
     @action add (data) {
         const params = {
@@ -20,6 +20,6 @@ class Example2 {
             return data
         })
     }
-};
+}
 
 export default Example2
