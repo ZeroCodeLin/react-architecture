@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { getTest } from '../actions/example3'
 
 @connect(
@@ -14,7 +15,7 @@ class Page3 extends PureComponent{
         data: {}        
     }
     click=()=>{
-       this.props.getTest()
+        this.props.getTest()
     }
     render(){
         console.log(this.props.dataSource)
@@ -30,4 +31,9 @@ class Page3 extends PureComponent{
     }
 }
 
-export default Page3;
+Page3.propTypes = {
+    dataSource: PropTypes.object,
+    getTest: PropTypes.func
+}
+
+export default Page3

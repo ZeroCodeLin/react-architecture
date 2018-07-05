@@ -7,7 +7,7 @@ const saveReducer = (data) => ({
 
 export const getTest = () => async (dispatch) => {
     try {
-        let response = await request(`api/page3`)
+        let response = await request('api/page3')
         await dispatch(saveReducer(response))
     } catch (error) {
         console.log('error: ', error)

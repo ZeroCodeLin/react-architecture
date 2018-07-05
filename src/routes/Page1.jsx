@@ -1,5 +1,6 @@
-import React,{ PureComponent } from "react"
-import { connect } from 'react-redux';
+import React,{ PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 @connect(({ example }) => ({
     num: example,
@@ -24,4 +25,9 @@ class Page1 extends PureComponent{
     }
 }
 
-export default Page1;
+Page1.propTypes = {
+    num: PropTypes.number,
+    dispatch: PropTypes.func
+}
+
+export default Page1

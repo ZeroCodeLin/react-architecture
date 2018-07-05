@@ -36,6 +36,7 @@ module.exports = {
             "error",
             "never"
         ],
+        "consistent-return": 0,
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
         'no-console': 0
     }
