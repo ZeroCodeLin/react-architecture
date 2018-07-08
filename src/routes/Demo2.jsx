@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 export default class CheckboxWithLabel extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = { isChecked: false };
+        super(props)
+        this.state = { isChecked: false }
         this.onChange = this.onChange.bind(this);
     }
 
