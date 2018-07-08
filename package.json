@@ -4,6 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm run lint",
         "lint": "eslint eslint --ext .jsx,.js src/**",
         "test": "jest --coverage",
         "start": "webpack-dev-server --open",
@@ -37,7 +39,9 @@
     },
     "husky": {
         "hooks": {
-          "pre-commit": "npm run lint"
+            "pre-commit": "npm run lint",
+            "pre-push": "npm run lint"
+            
         }
     },
     "dependencies": {
